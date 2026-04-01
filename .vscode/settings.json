@@ -21,5 +21,16 @@
 			"../examples/trix1.scr",
 			"6144"
 		]
-	}
+	},
+	"python.testing.unittestEnabled": true,
+	"python.testing.pytestEnabled": false,
+	"python.testing.nosetestsEnabled": false,
+	"python.testing.unittestArgs": [
+		"-v",
+		"-s",
+		"./tests",
+		"-p",
+		"unittest1.py"
+	],
+	"python-envs.defaultEnvManager": "ms-python.python:system"
 }
