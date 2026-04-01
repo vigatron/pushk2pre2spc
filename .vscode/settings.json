@@ -1,0 +1,20 @@
+{
+    // Папка для сборки
+    "cmake.buildDirectory": "${workspaceFolder}/build",
+
+    // Генерация compile_commands.json для IntelliSense
+    "cmake.exportCompileCommandsFile": true,
+
+    // // Явный выбор компилятора (пример для GCC)
+    // "cmake.configureSettings": {
+    //     "CMAKE_C_COMPILER": "/usr/bin/gcc",
+    //     "CMAKE_CXX_COMPILER": "/usr/bin/g++"
+    // },
+
+	"cmake.debugConfig": {
+		"args": [ 
+			"ti" , "../examples/trix1.scr" , "6144"
+		]
+	}
+
+}
