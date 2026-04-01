@@ -1,20 +1,25 @@
 {
-    // Папка для сборки
-    "cmake.buildDirectory": "${workspaceFolder}/build",
-
-    // Генерация compile_commands.json для IntelliSense
-    "cmake.exportCompileCommandsFile": true,
-
-    // // Явный выбор компилятора (пример для GCC)
-    // "cmake.configureSettings": {
-    //     "CMAKE_C_COMPILER": "/usr/bin/gcc",
-    //     "CMAKE_CXX_COMPILER": "/usr/bin/g++"
-    // },
-
+	// Папка для сборки
+	"cmake.buildDirectory": "${workspaceFolder}/build",
+	// Генерация compile_commands.json для IntelliSense
+	"cmake.exportCompileCommandsFile": true,
+	// // Явный выбор компилятора (пример для GCC)
+	// "cmake.configureSettings": {
+	//     "CMAKE_C_COMPILER": "/usr/bin/gcc",
+	//     "CMAKE_CXX_COMPILER": "/usr/bin/g++"
+	// },
+	"[cpp]": {
+		"editor.defaultFormatter": "xaver.clang-format" // "ms-vscode.cpptools"
+	},
+	"[c]": {
+		"editor.defaultFormatter": "xaver.clang-format"
+	},
 	"cmake.debugConfig": {
-		"args": [ 
-			"ti" , "../examples/trix1.scr" , "6144"
+		"args": [
+			// 7E8BC0800080F0807A8BC288F2FBFBE400000000000000000000000000000000
+			"n",
+			"../examples/trix1.scr",
+			"6144"
 		]
 	}
-
 }
