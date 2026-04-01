@@ -13,6 +13,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 file(GLOB_RECURSE source_list
     src/*.cpp
     src/*.hpp
+	src/mods/*
+	src/misc/*
 )
 
 # Исполняемый файл
