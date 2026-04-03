@@ -6,7 +6,6 @@
 #include "mods/argspars.hpp"
 #include "mods/memarrblk.hpp"
 
-bool checkopt(std::string mode, char sym);
-
-void showresults_t();
-void showresults_n();
+void showresults_t(uint8_t *fng);
+void showresults_n(uint8_t *fng);
+void showresults_s(uint8_t *fng);
