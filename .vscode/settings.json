@@ -23,7 +23,8 @@
 			// ---
 			"ints",
 			"../examples/trix1.scr",
-			"6144"
+			"128", // "6144",
+			"32", // "64"
 		]
 	},
 	"python.testing.unittestEnabled": true,
