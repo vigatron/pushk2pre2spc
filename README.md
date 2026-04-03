@@ -73,12 +73,10 @@ pushk2pre2spc
 
 ### Parameters
 
-| Parameter | Description                               | Default  |
-| --------- | ----------------------------------------- | -------- |
-| `mode`    | Currently supported: `t` (text map)       | required |
-| `file`    | Path to the binary file                   | required |
-| `offset`  | Starting byte offset                      | `0`      |
-| `length`  | Number of bytes to read (`0` = until EOF) | `0`      |
-
----
+| Parameter | Description | Default | Options / Details |
+| --- | --- | --- | --- |
+| ``mode`` | String defining program mode(s).<br>Each character is optional and can be combined. | required | ``i`` — Show input parameters<br/> ``n`` — Binary map<br/> ``t`` — Text map<br/> ``s`` — Size<br/>Example: ``"tn"`` → Text + Binary map |
+| ``file`` | Path to the binary file | required | Full or relative path must be provided |
+| ``offset`` | Starting byte offset | ``0`` | Defines where reading begins;<br> default is start of file |
+| ``length`` | Number of bytes to read (``0`` = until EOF) | ``0`` | If > 0, reads only the specified range; <br>if ``0``, reads until end of file |
 
