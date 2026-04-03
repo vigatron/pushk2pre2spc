@@ -12,6 +12,7 @@ int runproc(std::string mode, std::string fname, uint32_t offs,
 
   MemArrBlk mblk;
   uint8_t fng[256] = {0};
+  Fingerprint printer(fng);
 
   // Show input parameters
   if (checkopt(mode, 'i')) {
@@ -38,15 +39,19 @@ int runproc(std::string mode, std::string fname, uint32_t offs,
 
   // Show results
   if (checkopt(mode, 't')) {
-    showresults_t(fng);
+    printer.printText();
   }
 
   if (checkopt(mode, 'n')) {
-    showresults_n(fng);
+    printer.printHex();
   }
 
   if (checkopt(mode, 's')) {
-    showresults_s(fng);
+    printer.printCount();
+  }
+
+  if (checkopt(mode, 'j')) {
+    printer.printJson();
   }
 
   // Done
