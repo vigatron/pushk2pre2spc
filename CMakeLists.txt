@@ -1,7 +1,11 @@
 cmake_minimum_required(VERSION 3.16)
-project(MyQtProject LANGUAGES CXX)
 
-set(PRJNAME pushk2pre2spc)
+project(pushk2pre2spc LANGUAGES CXX)
+
+include_directories(${CMAKE_SOURCE_DIR}/src
+                    ${CMAKE_SOURCE_DIR}/src/mods
+                    ${CMAKE_SOURCE_DIR}/src/misc)
+
 
 # Опции компиляции
 set(CMAKE_CXX_STANDARD 17)
@@ -18,17 +22,11 @@ file(GLOB_RECURSE source_list
 )
 
 # Исполняемый файл
-add_executable(${PRJNAME} ${source_list})
+add_executable(${PROJECT_NAME} ${source_list})
 
-# Заголовочные файлы
-target_include_directories(${PRJNAME}
-    PRIVATE
-        src
-		src/mods
-)
 
 # Установка бинарника
-install(TARGETS ${PRJNAME}
+install(TARGETS ${PROJECT_NAME}
     RUNTIME DESTINATION bin
 )
 
