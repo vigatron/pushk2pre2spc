@@ -9,10 +9,10 @@
 	//     "CMAKE_CXX_COMPILER": "/usr/bin/g++"
 	// },
 	"[cpp]": {
-		"editor.defaultFormatter": "xaver.clang-format" // "ms-vscode.cpptools"
+		"editor.defaultFormatter": "ms-vscode.cpptools"
 	},
 	"[c]": {
-		"editor.defaultFormatter": "xaver.clang-format"
+		"editor.defaultFormatter": "ms-vscode.cpptools"
 	},
 	"cmake.debugConfig": {
 		"args": [
