@@ -11,15 +11,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Шаг 1: Получаем код
+      # Step 1: Get code
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Шаг 2: Устанавливаем зависимости (если нужны)
+      # Step 2: Install dependencies (if needed)
       - name: Install build tools
         run: sudo apt-get update && sudo apt-get install -y build-essential cmake
 
-      # Шаг 3: Сборка проекта
+      # Step 3: Build project
       - name: Build project
         run: |
           mkdir build
@@ -27,7 +27,7 @@ jobs:
           cmake ..
           make
 
-      # Шаг 4: Запуск unittest
+      # Step 4: Run unittest
       - name: Run Python tests
         run: |
           cd tests

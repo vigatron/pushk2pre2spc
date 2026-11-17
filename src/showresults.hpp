@@ -14,7 +14,7 @@ public:
 
   explicit Fingerprint(const uint8_t *data) : fng(data) {}
 
-  // Компактный HEX-вывод
+  // Compact HEX output
   void printHex() const {
     std::array<uint8_t, HEX_BLOCKS> cmplx{};
     for (int i = 0; i < SIZE; ++i) {
@@ -30,7 +30,7 @@ public:
     std::cout << '\n';
   }
 
-  // Текстовый вывод (# и .)
+  // Text output (# and .)
   void printText() const {
     for (int i = 0; i < SIZE; ++i) {
       std::cout << (fng[i] ? '#' : '.');
@@ -40,7 +40,7 @@ public:
     }
   }
 
-  // Подсчет единиц
+  // Unit count
   void printCount() const {
     int cnt = 0;
     for (int i = 0; i < SIZE; ++i) {
@@ -49,7 +49,7 @@ public:
     std::cout << cnt << '\n';
   }
 
-  // JSON-вывод (пример расширения)
+  // JSON output (example)
   void printJson() const {
     std::cout << "{ \"fingerprint\": [";
     for (int i = 0; i < SIZE; ++i) {
