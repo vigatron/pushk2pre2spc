@@ -14,7 +14,7 @@ public:
         std::string mode;
         std::string file_name;
         uint32_t offset{0};
-        uint16_t length{0};
+        uint32_t length{0};
     };
 
     static Params parse(int argc, char* argv[]) {
@@ -31,7 +31,7 @@ public:
         }
 
         if (argc >= 5) {
-            p.length = parse_uint16(argv[4], "length");
+            p.length = parse_uint32(argv[4], "length");
         }
 
         return p;
@@ -62,14 +62,4 @@ private:
         return static_cast<uint32_t>(val);
     }
 
-    static uint16_t parse_uint16(const char* arg, const char* name) {
-        std::string s = trim(arg);
-        char* endptr = nullptr;
-        errno = 0;
-        unsigned long val = std::strtoul(s.c_str(), &endptr, 10);
-        if (errno != 0 || *endptr != '\0' || val > UINT16_MAX) {
-            throw std::invalid_argument(std::string("Invalid ") + name + " value: " + s);
-        }
-        return static_cast<uint16_t>(val);
-    }
 };

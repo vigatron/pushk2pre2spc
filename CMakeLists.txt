@@ -1,19 +1,19 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(pushk2pre2spc LANGUAGES CXX)
+project(pushk2pre2spc VERSION 0.1.0 LANGUAGES CXX)
 
 include_directories(${CMAKE_SOURCE_DIR}/src
                     ${CMAKE_SOURCE_DIR}/src/mods
                     ${CMAKE_SOURCE_DIR}/src/misc)
 
 
-# Опции компиляции
+# Compilation options
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-# Источники
+# Sources
 file(GLOB_RECURSE source_list
     src/*.cpp
     src/*.hpp
@@ -21,11 +21,11 @@ file(GLOB_RECURSE source_list
 	src/misc/*
 )
 
-# Исполняемый файл
+# Executable file
 add_executable(${PROJECT_NAME} ${source_list})
 
 
-# Установка бинарника
+# System-wide installation
 install(TARGETS ${PROJECT_NAME}
     RUNTIME DESTINATION bin
 )

@@ -1,18 +1,18 @@
 {
-	// Папка для сборки
+	// Build folder
 	"cmake.buildDirectory": "${workspaceFolder}/build",
-	// Генерация compile_commands.json для IntelliSense
+	// Generate compile_commands.json for IntelliSense
 	"cmake.exportCompileCommandsFile": true,
-	// // Явный выбор компилятора (пример для GCC)
+	// // Explicit compiler selection (GCC example)
 	// "cmake.configureSettings": {
 	//     "CMAKE_C_COMPILER": "/usr/bin/gcc",
 	//     "CMAKE_CXX_COMPILER": "/usr/bin/g++"
 	// },
 	"[cpp]": {
-		"editor.defaultFormatter": "xaver.clang-format" // "ms-vscode.cpptools"
+		"editor.defaultFormatter": "ms-vscode.cpptools"
 	},
 	"[c]": {
-		"editor.defaultFormatter": "xaver.clang-format"
+		"editor.defaultFormatter": "ms-vscode.cpptools"
 	},
 	"cmake.debugConfig": {
 		"args": [

@@ -13,60 +13,60 @@ private:
 public:
     MemArrBlk() = default;
 
-    /// Загрузка блока данных из бинарного файла
-    /// @param filename путь к файлу
-    /// @param offset смещение в байтах от начала файла (по умолчанию 0)
-    /// @param length количество байт для чтения (по умолчанию 0 — читаем до конца файла)
-    /// @return true если загрузка успешна, false если произошла ошибка
+    /// Loading data block from binary file
+    /// @param filename Path to the file
+    /// @param offset Offset in bytes from the start of the file (default 0)
+    /// @param length Number of bytes to read (default 0 = read to end of file)
+    /// @return true if loading succeeded, false if an error occurred
     bool load(const std::string& filename, std::size_t offset = 0, std::size_t length = 0) {
         data_.clear();
 
         std::ifstream file(filename, std::ios::binary);
         if (!file) {
-            return false; // файл не открылся
+            return false; // file did not open
         }
 
-        // Определение размера файла
+        // Determining file size
         file.seekg(0, std::ios::end);
         std::size_t fileSize = static_cast<std::size_t>(file.tellg());
 
         if (offset >= fileSize) {
-            return false; // смещение за пределами файла
+            return false; // offset out of bounds
         }
 
-        // Если length == 0, читаем до конца файла
+        // If length == 0, read to end of file
         if (length == 0) {
             length = fileSize - offset;
         }
 
-        // Проверка выхода за пределы файла
+        // Bounds check
         if (offset + length > fileSize) {
-            return false; // пользователь запросил больше, чем доступно
+            return false; // requested more than available
         }
 
-        // Перемещение указателя и чтение данных
+        // Moving pointer and reading data
         file.seekg(static_cast<std::streamoff>(offset), std::ios::beg);
         data_.resize(length);
 
         if (!file.read(reinterpret_cast<char*>(data_.data()), static_cast<std::streamsize>(length))) {
             data_.clear();
-            return false; // ошибка чтения
+            return false; // read error
         }
 
         return true;
     }
 
-    /// Доступ к данным (только для чтения)
+    /// Access to data (read only)
     const std::vector<uint8_t>& data() const noexcept {
         return data_;
     }
 
-    /// Проверка, загружены ли данные
+    /// Check whether data is loaded
     bool empty() const noexcept {
         return data_.empty();
     }
 
-    /// Размер загруженного блока
+    /// Size of loaded block
     std::size_t size() const noexcept {
         return data_.size();
     }
